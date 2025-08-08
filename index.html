@@ -5,31 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday, My Love!</title>
   <style>
-    /* Global styling */
+    /* Flowing gradient background */
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ffe5ec, #ffd6e0);
+      background: linear-gradient(270deg, #ffe5ec, #ffd6e0, #ffc2d1, #ffb3c6);
+      background-size: 800% 800%;
+      animation: gradientFlow 15s ease infinite;
       color: #333;
       text-align: center;
       line-height: 1.6;
     }
-
-    /* Smooth fade-in animation */
-    * {
-      animation: fadeIn 1s ease-in-out;
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+
+    /* Intro text animation */
+    .intro {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-size: 2em;
+      color: #c9184a;
+      z-index: 1000;
+    }
+    .word {
+      opacity: 0;
+      transform: scale(0.8);
+      animation: popIn 0.5s forwards;
+    }
+    @keyframes popIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     /* Hero section */
     .hero {
       padding: 60px 20px;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(5px);
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(6px);
       border-bottom: 2px solid #ffc2d1;
+      margin-top: 80px;
     }
     .hero h1 {
       font-size: 3em;
@@ -39,12 +64,6 @@
     .hero p {
       font-size: 1.2em;
       color: #6a1e55;
-    }
-
-    /* Audio styling */
-    audio {
-      margin-top: 20px;
-      border-radius: 20px;
     }
 
     /* Letter section */
@@ -78,36 +97,59 @@
 </head>
 <body>
 
-  <section class="hero">
-    <h1>Happy Birthday, My Love! 🎂</h1>
-    <p>To the most amazing girl in the world — thank you for being you.</p>
-    <audio controls autoplay loop>
-      <source src="mitwa.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
-  </section>
+<!-- Hidden audio (autoplay) -->
+<audio autoplay loop>
+  <source src="mitwa.mp3" type="audio/mpeg" />
+</audio>
 
-  <section class="letter">
-    <h2>💌 A Letter to You</h2>
-    <p>
-      My dearest bubu,<br><br>
-      On this special day, I just want to remind you how much you mean to me.  
-      I feel incredibly lucky to have you in my life. Every moment with you feels like a beautiful dream,  
-      and I cherish every single one of them. ❤️<br><br>
+<!-- Intro overlay -->
+<div class="intro" id="intro">
+  <span class="word" style="animation-delay: 0s">Today</span>
+  <span class="word" style="animation-delay: 1s">is</span>
+  <span class="word" style="animation-delay: 2s">a</span>
+  <span class="word" style="animation-delay: 3s">very</span>
+  <span class="word" style="animation-delay: 4s">special</span>
+  <span class="word" style="animation-delay: 5s">day</span>
+</div>
 
-      I hope this little website brings a smile to your face.  
-      I tried adding pictures but it didn’t quite work out — so just imagine the cutest ones of us together!  
-      Even if we can’t celebrate together right now, we will make it happen someday. 🎉<br><br>
+<section class="hero">
+  <h1>Happy Birthday, My Love! 🎂</h1>
+  <p>To the most amazing girl in the world — thank you for being you.</p>
+</section>
 
-      I wanted to try something different for your birthday this time.  
-      At last, I just want to say… you are special to me, and this is a small gift for the most special person in my life.  
-      Happy Birthday, my dear love. I love you more than words can ever say. 💖
-    </p>
-  </section>
+<section class="letter">
+  <h2>💌 A Letter to You</h2>
+  <p>
+    My dearest bubu,<br><br>
+    On this special day, I just want to remind you how much you mean to me.  
+    I feel incredibly lucky to have you in my life. Every moment with you feels like a beautiful dream,  
+    and I cherish every single one of them. ❤️<br><br>
 
-  <footer>
-    Made with love by [KRISH] 💕 | Forever Yours
-  </footer>
+    I hope this little website brings a smile to your face.  
+    Even if we can’t celebrate together right now, we will make it happen someday. 🎉<br><br>
+
+    I wanted to try something different for your birthday this time.  
+    At last, I just want to say… you are special to me, and this is a small gift for the most special person in my life.  
+    Happy Birthday, my dear love. I love you more than words can ever say. 💖
+  </p>
+</section>
+
+<footer>
+  Made with love by [KRISH] 💕 | Forever Yours
+</footer>
+
+<script>
+  // Show intro words in sequence
+  const words = document.querySelectorAll('.word');
+  words.forEach((word, i) => {
+    word.style.animationDelay = `${i}s`;
+  });
+
+  // Remove intro after words are done
+  setTimeout(() => {
+    document.getElementById('intro').style.display = 'none';
+  }, words.length * 1000 + 500);
+</script>
 
 </body>
 </html>

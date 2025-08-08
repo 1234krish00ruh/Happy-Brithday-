@@ -5,64 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday, My Love!</title>
   <style>
+    /* Global styling */
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #ffe0e0, #ffc2d1);
+      background: linear-gradient(135deg, #ffe5ec, #ffd6e0);
       color: #333;
       text-align: center;
+      line-height: 1.6;
     }
+
+    /* Smooth fade-in animation */
+    * {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Hero section */
     .hero {
       padding: 60px 20px;
-      background: #fff0f5;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(5px);
+      border-bottom: 2px solid #ffc2d1;
     }
     .hero h1 {
       font-size: 3em;
       margin-bottom: 10px;
+      color: #c9184a;
     }
     .hero p {
       font-size: 1.2em;
+      color: #6a1e55;
     }
+
+    /* Audio styling */
     audio {
       margin-top: 20px;
+      border-radius: 20px;
     }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 30px 0;
-    }
-    .gallery img {
-      width: 250px;
-      margin: 10px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
+
+    /* Letter section */
     .letter {
-      max-width: 600px;
+      max-width: 700px;
       margin: 40px auto;
       background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: left;
     }
+    .letter h2 {
+      text-align: center;
+      color: #ff4d6d;
+    }
+    .letter p {
+      font-size: 1.05em;
+      color: #444;
+    }
+
+    /* Footer */
     footer {
       padding: 20px;
+      background: #fff0f5;
       font-size: 0.9em;
+      color: #7f4f24;
+      border-top: 2px solid #ffc2d1;
     }
   </style>
 </head>
 <body>
-/BirthdayWebsite
-  ├── birthday.html
-  ├── photo1.jpg
-  ├── photo2.jpg
-  ├── photo3.jpg
-  └── mitwa.mp3
 
   <section class="hero">
     <h1>Happy Birthday, My Love! 🎂</h1>
-    <p>To the most amazing girl in the world—thank you for being you.</p>
+    <p>To the most amazing girl in the world — thank you for being you.</p>
     <audio controls autoplay loop>
       <source src="mitwa.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
@@ -73,16 +91,23 @@
     <h2>💌 A Letter to You</h2>
     <p>
       My dearest bubu,<br><br>
-      On this special day, I just want to remind you how much you mean to me. i just wanna say i am very lucky to have u in my life idk muhhe kya bolna chahiye but i love u. Every moment with you feels like a beautiful dream.<br><br>
-      I hope this website brings a smile to your face and i tried ki m pics add kru but woh nhi kr payah hahahhaha sorry for that and just enjoy your day. bubu abhi hm chahe sath nhi h but we will celebrate your bday togerther kisi din.<br><br>
-     i hope u liked it i thought i should try something different so i tried this baaki m sb dm m likh dunga hahahahahah kyuki isme emojis nhi dl rhe mujhse hihihihihihihihihih. at last i wanna say u are special to me and a small gift for special person hihihihih Happy Birthday, my dear love. I love you more than words can say. 💖
+      On this special day, I just want to remind you how much you mean to me.  
+      I feel incredibly lucky to have you in my life. Every moment with you feels like a beautiful dream,  
+      and I cherish every single one of them. ❤️<br><br>
+
+      I hope this little website brings a smile to your face.  
+      I tried adding pictures but it didn’t quite work out — so just imagine the cutest ones of us together!  
+      Even if we can’t celebrate together right now, we will make it happen someday. 🎉<br><br>
+
+      I wanted to try something different for your birthday this time.  
+      At last, I just want to say… you are special to me, and this is a small gift for the most special person in my life.  
+      Happy Birthday, my dear love. I love you more than words can ever say. 💖
     </p>
   </section>
 
   <footer>
-    Made with love by [KRISH] 💕
+    Made with love by [KRISH] 💕 | Forever Yours
   </footer>
 
 </body>
 </html>
-

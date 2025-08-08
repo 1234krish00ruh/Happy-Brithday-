@@ -1,155 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday, My Love!</title>
-  <style>
-    /* Flowing gradient background */
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(270deg, #ffe5ec, #ffd6e0, #ffc2d1, #ffb3c6);
-      background-size: 800% 800%;
-      animation: gradientFlow 15s ease infinite;
-      color: #333;
-      text-align: center;
-      line-height: 1.6;
-    }
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday, My Love!</title>
+<style>
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* Intro text animation */
-    .intro {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(255,255,255,0.95);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-size: 2em;
-      color: #c9184a;
-      z-index: 1000;
-    }
-    .word {
-      opacity: 0;
-      transform: scale(0.8);
-      animation: popIn 0.5s forwards;
-    }
-    @keyframes popIn {
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
+/* Animated gradient background */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+  overflow-x: hidden;
+  color: #333;
+  background: linear-gradient(270deg, #ffe5ec, #ffd6e0, #ffc2d1, #ffb3c6);
+  background-size: 800% 800%;
+  animation: gradientFlow 20s ease infinite;
+}
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    /* Hero section */
-    .hero {
-      padding: 60px 20px;
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(6px);
-      border-bottom: 2px solid #ffc2d1;
-      margin-top: 80px;
-    }
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-      color: #c9184a;
-    }
-    .hero p {
-      font-size: 1.2em;
-      color: #6a1e55;
-    }
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  color: rgba(255, 105, 180, 0.7);
+  animation: floatUp 8s linear infinite;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+}
 
-    /* Letter section */
-    .letter {
-      max-width: 700px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: left;
-    }
-    .letter h2 {
-      text-align: center;
-      color: #ff4d6d;
-    }
-    .letter p {
-      font-size: 1.05em;
-      color: #444;
-    }
+/* Intro overlay */
+.intro {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  z-index: 1000;
+  animation: fadeOut 1s ease forwards;
+  animation-delay: 6s;
+}
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+.intro span {
+  opacity: 0;
+  transform: translateY(20px);
+  font-size: 2em;
+  color: #c9184a;
+  animation: wordFade 1s forwards;
+}
+@keyframes wordFade {
+  to { opacity: 1; transform: translateY(0); }
+}
+.intro span:nth-child(1) { animation-delay: 0.5s; }
+.intro span:nth-child(2) { animation-delay: 1.5s; }
+.intro span:nth-child(3) { animation-delay: 2.5s; }
+.intro span:nth-child(4) { animation-delay: 3.5s; }
+.intro span:nth-child(5) { animation-delay: 4.5s; }
 
-    /* Footer */
-    footer {
-      padding: 20px;
-      background: #fff0f5;
-      font-size: 0.9em;
-      color: #7f4f24;
-      border-top: 2px solid #ffc2d1;
-    }
-  </style>
+/* Hero section */
+.hero {
+  padding: 80px 20px 40px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 800px;
+  animation: slideIn 1.5s ease forwards;
+}
+.hero h1 {
+  font-size: 3em;
+  color: #c9184a;
+}
+.hero p {
+  font-size: 1.2em;
+  color: #6a1e55;
+}
+
+/* Letter section */
+.letter {
+  max-width: 800px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  animation: fadeUp 1.5s ease forwards;
+}
+.letter h2 {
+  text-align: center;
+  color: #ff4d6d;
+}
+.letter p {
+  font-size: 1.05em;
+  color: #444;
+  white-space: pre-line;
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #7f4f24;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+</style>
 </head>
 <body>
 
-<!-- Hidden audio (autoplay) -->
+<!-- Hidden background music -->
 <audio autoplay loop>
   <source src="mitwa.mp3" type="audio/mpeg" />
 </audio>
 
+<!-- Floating hearts generator -->
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 10 + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 8000);
+}
+setInterval(createHeart, 400);
+</script>
+
 <!-- Intro overlay -->
-<div class="intro" id="intro">
-  <span class="word" style="animation-delay: 0s">Today</span>
-  <span class="word" style="animation-delay: 1s">is</span>
-  <span class="word" style="animation-delay: 2s">a</span>
-  <span class="word" style="animation-delay: 3s">very</span>
-  <span class="word" style="animation-delay: 4s">special</span>
-  <span class="word" style="animation-delay: 5s">day</span>
+<div class="intro">
+  <span>Today is special...</span>
+  <span>Because it's your day...</span>
+  <span>And you are my world...</span>
+  <span>So here's something for you...</span>
+  <span>Happy Birthday ❤️</span>
 </div>
 
+<!-- Hero -->
 <section class="hero">
   <h1>Happy Birthday, My Love! 🎂</h1>
   <p>To the most amazing girl in the world — thank you for being you.</p>
 </section>
 
+<!-- Letter -->
 <section class="letter">
   <h2>💌 A Letter to You</h2>
   <p>
-    My dearest bubu,<br><br>
-    On this special day, I just want to remind you how much you mean to me.  
-    I feel incredibly lucky to have you in my life. Every moment with you feels like a beautiful dream,  
-    and I cherish every single one of them. ❤️<br><br>
+My dearest bubu,  
 
-    I hope this little website brings a smile to your face.  
-    Even if we can’t celebrate together right now, we will make it happen someday. 🎉<br><br>
+On this special day, I just want to remind you how much you mean to me.  
+I feel incredibly lucky to have you in my life. Every moment with you feels like a beautiful dream,  
+and I cherish every single one of them. ❤️  
 
-    I wanted to try something different for your birthday this time.  
-    At last, I just want to say… you are special to me, and this is a small gift for the most special person in my life.  
-    Happy Birthday, my dear love. I love you more than words can ever say. 💖
+I hope this little website brings a smile to your face.  
+Even if we can’t celebrate together right now, we will make it happen someday. 🎉  
+
+I wanted to try something different for your birthday this time.  
+At last, I just want to say… you are special to me, and this is a small gift for the most special person in my life.  
+
+Happy Birthday, my dear love. I love you more than words can ever say. 💖
   </p>
 </section>
 
 <footer>
   Made with love by [KRISH] 💕 | Forever Yours
 </footer>
-
-<script>
-  // Show intro words in sequence
-  const words = document.querySelectorAll('.word');
-  words.forEach((word, i) => {
-    word.style.animationDelay = `${i}s`;
-  });
-
-  // Remove intro after words are done
-  setTimeout(() => {
-    document.getElementById('intro').style.display = 'none';
-  }, words.length * 1000 + 500);
-</script>
 
 </body>
 </html>
